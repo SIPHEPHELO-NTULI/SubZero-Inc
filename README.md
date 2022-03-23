@@ -1,1 +1,2 @@
 # SwapShop
+- ### Project Scope
