@@ -20,8 +20,10 @@
 
 
 - ### Requirements
-      -The user needs to have a mobile device and internet connection. They can also access the platform using web
-      - Developer : Flutter version 2.5 (recommended)
+      -The user:
+      The user needs to have a mobile device and internet connection. They can also access the platform using web
+      - Developer: 
+      Flutter version 2.5 (recommended)
  
 - ### Programming languages
       -Dart
