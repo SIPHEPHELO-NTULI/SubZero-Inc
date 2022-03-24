@@ -7,12 +7,11 @@
 
 - ### function
       - Users should be able to:
-      - 1. List items they wish to swap
-      - 2. Browse listed items
-      - 3. Contact people who have listed items to swap (via in app chat system)
-      - 4. Keep track of what will be traded during a swap
-      - 5. Organiseto meet once a swap has been agreed (with measures in place to avoid scams and other dangers)
-
+      1. List items they wish to swap
+      2. Browse listed items
+      3. Contact people who have listed items to swap (via in app chat system)
+      4. Keep track of what will be traded during a swap
+      5. Organiseto meet once a swap has been agreed (with measures in place to avoid scams and other dangers)
 
 -### Purpose
       -The purpose of this app is to help facilitate the process of swapping items to communities which have started operating swap shops(where people swap food, clothes, furniture, etc.) in efforts to avoid waste and grow communities
