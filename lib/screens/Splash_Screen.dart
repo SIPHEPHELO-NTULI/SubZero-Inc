@@ -16,7 +16,7 @@ class Splash_Screen extends StatelessWidget {
 
     return Scaffold(
         body: Container(
-      color: Colors.red,
+      color: Colors.white,
       alignment: Alignment.center,
       child: Image.asset("assets/logo.png", fit: BoxFit.contain),
     ));
