@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:swap_shop/models/user_model.dart';
-import 'package:swap_shop/screens/home_screen.dart';
+import 'package:swap_shop/screens/create_listing.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
