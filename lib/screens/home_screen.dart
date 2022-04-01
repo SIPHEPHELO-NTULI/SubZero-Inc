@@ -79,7 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: AppBar(
           title: const Text("My Listing"),
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.logout)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                icon: Icon(Icons.logout)),
           ],
         ),
         preferredSize: Size.fromHeight(appBarHeight));
