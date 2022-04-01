@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Splash_Screen(
-          duration: 2,
+          duration: 3,
           goToPage: LoginScreen(),
     );
   }
