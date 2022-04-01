@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:swap_shop/screens/Splash_screen.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 
 Future<void> main() async {
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: Splash_Screen(
+          duration: 3,
+          goToPage: LoginScreen(),
     );
   }
 }

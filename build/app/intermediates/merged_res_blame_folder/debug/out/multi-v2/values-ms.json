@@ -1,7 +1,11 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ms\\values-ms.xml",
+=======
+            "outputFile": "/Users/Kayleize/Documents/SubZero-Inc./build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+>>>>>>> e914edcd718b7a0c709960e681ef989115914f42
             "map": [
                 {
                     "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\6627ebe7ef94065a47e7e8e9d66c6a9d\\jetified-play-services-base-17.1.0\\res\\values-ms\\values.xml",
