@@ -50,7 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             IconButton(
                 onPressed: () {
+<<<<<<< HEAD
                   Navigator.of(context).pushReplacement(
+=======
+                  Navigator.push(context,
+>>>>>>> e914edcd718b7a0c709960e681ef989115914f42
                       MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
                 icon: Icon(Icons.logout)),

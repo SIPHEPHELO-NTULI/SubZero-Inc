@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:swap_shop/screens/Home_Screen.dart';
-import 'package:swap_shop/screens/create_listing.dart';
+import 'package:swap_shop/screens/forgot_password_screen.dart';
+import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/registration_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -136,7 +136,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     loginButton,
                     SizedBox(
-                      height: 20,
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        ForgotPasswordScreen()));
+                          },
+                          child: Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
