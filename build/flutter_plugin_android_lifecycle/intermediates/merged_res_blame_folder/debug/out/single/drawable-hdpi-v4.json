@@ -1,43 +1,22 @@
 [
     {
-<<<<<<< HEAD
-        "merged": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal.9.png",
-        "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+        "merged": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png",
-        "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+        "merged": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_normal.9.png",
-        "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+        "merged": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
-        "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+        "merged": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png",
-        "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
-=======
-        "merged": "/Users/Kayleize/Documents/SubZero-Inc./build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_normal.9.png",
-        "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "/Users/Kayleize/Documents/SubZero-Inc./build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
-        "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
-        "merged": "/Users/Kayleize/Documents/SubZero-Inc./build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
-        "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
-    },
-    {
-        "merged": "/Users/Kayleize/Documents/SubZero-Inc./build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_normal.9.png",
-        "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
-    },
-    {
-        "merged": "/Users/Kayleize/Documents/SubZero-Inc./build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
-        "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
->>>>>>> e914edcd718b7a0c709960e681ef989115914f42
+        "merged": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     }
 ]

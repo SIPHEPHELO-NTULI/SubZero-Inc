@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\image_picker\\intermediates\\res\\merged\\debug\\values-es\\values-es.xml",
-=======
-            "outputFile": "/Users/Kayleize/Documents/SubZero-Inc./build/image_picker/intermediates/res/merged/debug/values-es/values-es.xml",
->>>>>>> e914edcd718b7a0c709960e681ef989115914f42
+            "outputFile": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\image_picker\\intermediates\\res\\merged\\debug\\values-es\\values-es.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,14 +16,10 @@
             ]
         },
         {
-<<<<<<< HEAD
-            "outputFile": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\image_picker\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
-=======
-            "outputFile": "/Users/Kayleize/Documents/SubZero-Inc./build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml",
->>>>>>> e914edcd718b7a0c709960e681ef989115914f42
+            "outputFile": "C:\\Users\\nkhol\\Documents\\SubZero-Inc\\build\\image_picker\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\nkhol\\.gradle\\caches\\transforms-2\\files-2.1\\14b93615368c2249f1830e26ca064ab5\\core-1.6.0\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
