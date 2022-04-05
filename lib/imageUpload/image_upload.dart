@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:swap_shop/screens/home_screen.dart';
 //image picker for picking image
 //firebase storage for uploading image to firebase
 //cloud firestore for saving url for uploading to our application
@@ -22,6 +23,7 @@ class _ImageUploadState extends State<ImageUpload> {
   //initialization code
 
   File? _image;
+  final _formKey = GlobalKey<FormState>();
   final imagePicker = ImagePicker();
   String? downloadURL;
 
@@ -60,7 +62,6 @@ class _ImageUploadState extends State<ImageUpload> {
         .collection("images")
         .add({'downloadURL': downloadURL}).whenComplete(() =>
             showSnackBar("Image Uploaded Successfully", Duration(seconds: 2)));
-    ;
   }
 
 //snackbar : error displays
@@ -72,7 +73,17 @@ class _ImageUploadState extends State<ImageUpload> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Image Upload")),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+        ),
+        title: const Text("Image Upload"),
+        centerTitle: true,
+      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(8),
