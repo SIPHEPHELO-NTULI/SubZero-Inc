@@ -16,13 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: Splash_Screen(
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: Splash_Screen(
           duration: 3,
           goToPage: LoginScreen(),
-    );
+        ));
   }
 }

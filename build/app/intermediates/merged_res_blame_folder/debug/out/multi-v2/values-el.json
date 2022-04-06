@@ -1,11 +1,7 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "C:\\Users\\PFUNZO\\Documents\\SD Project\\SubZero-Inc\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
-=======
-            "outputFile": "/Users/Kayleize/Documents/SubZero-Inc./build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml",
->>>>>>> e914edcd718b7a0c709960e681ef989115914f42
+            "outputFile": "C:\\Users\\PFUNZO\\Documents\\clone\\SubZero-Inc\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
             "map": [
                 {
                     "source": "C:\\Users\\PFUNZO\\.gradle\\caches\\transforms-2\\files-2.1\\0c11252d9d87559920ca1b1a0bcd2692\\jetified-play-services-basement-17.1.0\\res\\values-el\\values.xml",
