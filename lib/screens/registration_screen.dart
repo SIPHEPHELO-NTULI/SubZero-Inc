@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:swap_shop/models/user_model.dart';
-import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -15,10 +14,13 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
-  //form key
+  //form key for validation of the form
   final _formKey = GlobalKey<FormState>();
 
-  //editing controller
+  //editing controllers
+  //To control the text boxes for:
+  // Name, Surname,Username,Password,
+  //Email,Confirm Password,Suburb & City
 
   final TextEditingController nameEditingController =
       new TextEditingController();
@@ -39,7 +41,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //name field
+    //Name field
+    //validation : must be filled in
+    //validation : must be 3 Characters Minimum
     final nameField = TextFormField(
       autofocus: false,
       controller: nameEditingController,
@@ -68,7 +72,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//surname field
+    //Surname field
+    //validation : must be filled in
+    //validation : must be 3 Characters Minimum
     final surnameField = TextFormField(
       autofocus: false,
       controller: surnameEditingController,
@@ -92,7 +98,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//username field
+    //Username field
+    //validation : must be filled in
     final usernameField = TextFormField(
       autofocus: false,
       controller: usernameEditingController,
@@ -115,7 +122,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//email field
+    //Email field
+    //validation : must be filled in
+    //validation : must be valid Email
     final emailField = TextFormField(
       autofocus: false,
       controller: emailEditingController,
@@ -143,7 +152,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//password field
+    //Password field
+    //validation : must be filled in
+    //validation : must be 6 Characters Minimum
     final passwordField = TextFormField(
       obscureText: true,
       autofocus: false,
@@ -171,7 +182,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//confirm password field
+    //Confirm Password field
+    //validation : must be filled in
+    //validation : must be 6 Characters Minimum
+    //Validation: Must match Password
     final confirmPasswordField = TextFormField(
       obscureText: true,
       autofocus: false,
@@ -196,7 +210,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//suburb field
+    //Suburb field
+    //validation : must be filled in
     final suburbField = TextFormField(
       autofocus: false,
       controller: suburbEditingController,
@@ -220,7 +235,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//city field
+    //City field
+    //validation : must be filled in
     final cityField = TextFormField(
       autofocus: false,
       controller: cityEditingController,
@@ -244,7 +260,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-//sign up button
+    //Sign Up Button
+    //Calls SignUp Method with email and password
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -264,6 +281,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
 
+    //designing the screen
+    //consists of text fields for user input
+    //and a sign up button
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -337,6 +357,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ))));
   }
 
+  //this methos is used to post the values
+  //entered on the form to the firebase database
+
   postDetailsToFirestore() async {
     //calling firestore
     //calling our user model
@@ -345,10 +368,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
 
+    //class containing users registration details
     UserModel userModel = UserModel();
 
-    //writing values
-
+    //writing values from text fields to objects attributes
     userModel.name = nameEditingController.text;
     userModel.surname = surnameEditingController.text;
     userModel.username = usernameEditingController.text;
@@ -357,6 +380,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.city = cityEditingController.text;
     userModel.uid = user.uid;
 
+    //sending values to database as map
     await firebaseFirestore
         .collection("users")
         .doc(user.uid)
@@ -365,6 +389,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     Fluttertoast.showToast(
         msg: "Account Created Successfully", gravity: ToastGravity.TOP);
   }
+
+  //this method calls the above method to send the details to the database
+  // it uses the method provided by firestore authentication
+  // to create an account with the given email and password
 
   void signUp(String email, String password) async {
     if (_formKey.currentState!.validate()) {

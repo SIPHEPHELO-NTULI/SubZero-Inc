@@ -1,3 +1,5 @@
+//this class hold the users registration details
+// this makes it easier to track individual details of the user
 class UserModel {
   String? uid;
   String? name;

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:swap_shop/screens/forgot_password_screen.dart';
 import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/registration_screen.dart';
@@ -17,7 +16,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  //editing controller
+  //editing controllers
+  //for email and password
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
@@ -27,6 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     //email field
+    //validation : must be filled in
+    //validation : must be valid
     final emailField = TextFormField(
       autofocus: false,
       controller: emailController,
@@ -55,6 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     //password field
+    //validation : must be filled in
+    //validation : must be minimum 6 characters
     final passwordField = TextFormField(
       autofocus: false,
       controller: passwordController,
@@ -83,6 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
           )),
     );
 
+    //login Buttong
+    //On Pressed : sends email and password
+    //to Sign In method
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -102,6 +109,9 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
+    //designing the screen
+    //consists of two text fields
+    //login button and forgot password button
     return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -190,7 +200,11 @@ class _LoginScreenState extends State<LoginScreen> {
         ))));
   }
 
-//sign in method
+  //sign in method
+  //sends email and password to firebase
+  //authenticates the email and password
+  //if details are valid,proceed to home screen
+  // else error message is displayed in snack bar
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
@@ -199,9 +213,14 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => HomeScreen()));
       } on FirebaseAuthException catch (error) {
-        Fluttertoast.showToast(
-            msg: error.message.toString(), gravity: ToastGravity.TOP);
+        showSnackBar(error.message.toString(), Duration(seconds: 4));
       }
     }
+  }
+
+  // snack bar method for displaying errors during Login
+  showSnackBar(String snackText, Duration d) {
+    final snackBar = SnackBar(content: Text(snackText), duration: d);
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

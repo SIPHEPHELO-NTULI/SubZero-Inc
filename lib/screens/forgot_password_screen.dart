@@ -11,18 +11,20 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   //form key
-
+  //used to validate email
   final _formKey = GlobalKey<FormState>();
 
   //editing controller
   final TextEditingController emailController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
 
   //firebase
   final _auth = FirebaseAuth.instance;
 
   Widget build(BuildContext context) {
     //email field
+    //validation : must be filled in
+    //validation : must be valid
+
     final emailField = TextFormField(
       autofocus: false,
       controller: emailController,
@@ -50,6 +52,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           )),
     );
 
+    //reset button
+    //on Pressed:call verifyEmail()
     final resetButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -70,7 +74,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
 
     return Scaffold(
-        appBar: _appBar(),
+        appBar: AppBar(
+          title: Text("Reset Password"),
+          automaticallyImplyLeading: false,
+        ),
         backgroundColor: Colors.white,
         body: Center(
             child: SingleChildScrollView(
@@ -108,29 +115,31 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ))));
   }
 
-  _appBar() {
-    final appBarHeight = AppBar().preferredSize.height;
-    return PreferredSize(
-        child: AppBar(
-          title: const Text("Reset Password"),
-        ),
-        preferredSize: Size.fromHeight(appBarHeight));
-  }
-
+  //verifyEmail method
+  //this method will send the email
+  //to the Firebase database and check if the email exits
+  //if the email does not exist
+  //an error is displayed in the snack bar
+  //saying that there is no user with that email in the records
+  //if the email address exists then an email is sent to that address
+  //with a link the user must click to reset their password
   Future verifyEmail() async {
     if (_formKey.currentState!.validate()) {
       try {
         await FirebaseAuth.instance
             .sendPasswordResetEmail(email: emailController.text.trim());
-
         showSnackBar(
             "Password Reset Email Has Been Sent", Duration(seconds: 3));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LoginScreen()));
       } on FirebaseAuthException catch (e) {
         showSnackBar(e.message.toString(), Duration(seconds: 3));
       }
     }
   }
 
+  // snack bar method for displaying errors
+  //when the entered email does not exist in our records
   showSnackBar(String snackText, Duration d) {
     final snackBar = SnackBar(content: Text(snackText), duration: d);
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
