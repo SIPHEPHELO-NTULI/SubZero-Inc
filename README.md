@@ -6,6 +6,13 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
+Downloads/Installations needed:
+[Visual Studio Code](https://code.visualstudio.com/)
+[Flutter](https://docs.flutter.dev/get-started/install?gclid=EAIaIQobChMI07Sx2tTw9gIVytPtCh2qEggXEAAYASAAEgIe9PD_BwE&gclsrc=aw.ds)
+[Android Studio](https://developer.android.com/studio)
+
+[How to install and set up Flutter on VS Code and set up with Android Studio](https://www.youtube.com/watch?v=tun0HUHaDuE)
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
