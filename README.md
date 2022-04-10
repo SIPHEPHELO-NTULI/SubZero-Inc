@@ -39,6 +39,10 @@ In an effort to avoid waste and grow communities, many people have begun operati
 
 ## How to Intsall and Run Project
 
+Go to "Code", select "Download ZIP file"
+Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Get Started") and Open Folders
+Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
+
 ## Badge
 
 [![mf-fentse](https://circleci.com/gh/mf-fentse/SubZero-Inc.svg?style=svg)](https://circleci.com/gh/mf-fentse/SubZero-Inc)
