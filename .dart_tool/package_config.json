@@ -146,6 +146,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/Kayleize/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -302,7 +308,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-07T15:22:29.501285Z",
+  "generated": "2022-04-21T14:42:37.323793Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

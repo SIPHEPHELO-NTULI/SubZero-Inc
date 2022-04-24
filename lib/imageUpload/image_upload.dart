@@ -61,7 +61,7 @@ class _ImageUploadState extends State<ImageUpload> {
         .collection("users")
         .doc(widget.userId)
         .collection("images")
-        .add({'downloadURL': downloadURL}).whenComplete(() =>
+        .add({'profilePicUrl': downloadURL}).whenComplete(() =>
             showSnackBar("Image Uploaded Successfully", Duration(seconds: 2)));
   }
 

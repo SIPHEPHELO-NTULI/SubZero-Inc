@@ -5,6 +5,7 @@ import 'package:swap_shop/models/user_listing_model.dart';
 import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/create_listing.dart';
 import 'package:swap_shop/screens/home_screen.dart';
+import 'package:swap_shop/screens/main_navigation_drawer.dart';
 
 class BrowseListings extends StatefulWidget {
   const BrowseListings({Key? key}) : super(key: key);
@@ -25,7 +26,9 @@ class _BrowseListingsState extends State<BrowseListings> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Available Items"),
-        automaticallyImplyLeading: false,
+      ),
+      drawer: Drawer(
+        child: MainNavigationDrawer(),
       ),
       body: FutureBuilder(
         future: FireStoreDataBase().getData(),

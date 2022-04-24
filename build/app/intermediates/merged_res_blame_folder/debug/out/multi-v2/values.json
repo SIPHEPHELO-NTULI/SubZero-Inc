@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kayleize/Desktop/SubZero-Inc./build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/Kayleize/Desktop/Stuffs/BU/SubZero-Inc./build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
+                {
+                    "source": "/Users/Kayleize/Desktop/Stuffs/BU/SubZero-Inc./android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,807",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "465,971"
+                    },
+                    "to": {
+                        "startLines": "134,139",
+                        "startColumns": "4,4",
+                        "startOffsets": "9769,10066",
+                        "endLines": "138,141",
+                        "endColumns": "12,12",
+                        "endOffsets": "10061,10230"
+                    }
+                },
                 {
                     "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/cea45e25bbe77c9713c39e234ccfd7bd/jetified-window-1.0.0-beta04/res/values/values.xml",
                     "from": {
@@ -61,7 +80,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kayleize/Desktop/SubZero-Inc./build/app/generated/res/google-services/debug/values/values.xml",
+                    "source": "/Users/Kayleize/Desktop/Stuffs/BU/SubZero-Inc./build/app/generated/res/google-services/debug/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -128,25 +147,6 @@
                         "startOffsets": "6495,7673",
                         "endColumns": "67,166",
                         "endOffsets": "6558,7835"
-                    }
-                },
-                {
-                    "source": "/Users/Kayleize/Desktop/SubZero-Inc./android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,807",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "465,971"
-                    },
-                    "to": {
-                        "startLines": "134,139",
-                        "startColumns": "4,4",
-                        "startOffsets": "9769,10066",
-                        "endLines": "138,141",
-                        "endColumns": "12,12",
-                        "endOffsets": "10061,10230"
                     }
                 }
             ]

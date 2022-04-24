@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:swap_shop/screens/Splash_Screen.dart';
-import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 
 Future<void> main() async {

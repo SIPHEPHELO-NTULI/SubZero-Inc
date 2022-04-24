@@ -8,7 +8,7 @@ import 'package:swap_shop/models/user_listing_model.dart';
 import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/browse_listings.dart';
 import 'package:swap_shop/screens/home_screen.dart';
-import 'package:swap_shop/screens/login_screen.dart';
+import 'package:swap_shop/screens/main_navigation_drawer.dart';
 
 class CreateListing extends StatefulWidget {
   CreateListing({Key? key}) : super(key: key);
@@ -44,6 +44,20 @@ class _CreateListing extends State<CreateListing> {
     setState(() {
       if (pick != null) {
         _image = File(pick.path);
+      } else {
+        //showing snackbar with error
+        showSnackBar("No File Selected", Duration(seconds: 2));
+      }
+    });
+  }
+
+  Future takePhoto(ImageSource source) async {
+    final pickedFile = await imagePicker.pickImage(
+      source: source,
+    );
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
       } else {
         //showing snackbar with error
         showSnackBar("No File Selected", Duration(seconds: 2));
@@ -235,7 +249,9 @@ class _CreateListing extends State<CreateListing> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("My Listing"),
-        automaticallyImplyLeading: false,
+      ),
+      drawer: Drawer(
+        child: MainNavigationDrawer(),
       ),
       body: Form(
         key: _formKey,
@@ -278,7 +294,10 @@ class _CreateListing extends State<CreateListing> {
                             ),
                             ElevatedButton(
                                 onPressed: () {
-                                  imagePickerMethod();
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: ((builder) => bottomSheet()),
+                                  );
                                 },
                                 child: Icon(
                                   Icons.add_a_photo,
@@ -334,6 +353,47 @@ class _CreateListing extends State<CreateListing> {
               icon: Icon(Icons.shopping_basket),
               label: 'Browse',
               backgroundColor: Colors.red),
+        ],
+      ),
+    );
+  }
+
+  Widget bottomSheet() {
+    return Container(
+      height: 100.0,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        children: <Widget>[
+          Text(
+            "Choose Profile Picture",
+            style: TextStyle(fontSize: 20.0),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton.icon(
+                icon: Icon(Icons.camera),
+                onPressed: () {
+                  takePhoto(ImageSource.camera);
+                },
+                label: Text("Camera"),
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.image),
+                onPressed: () {
+                  takePhoto(ImageSource.gallery);
+                },
+                label: Text("Gallery"),
+              )
+            ],
+          )
         ],
       ),
     );
