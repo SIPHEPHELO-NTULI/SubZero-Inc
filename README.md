@@ -13,7 +13,11 @@ Downloads/Installations needed:
 
 [Android Studio](https://developer.android.com/studio)
 
+[Firebase](https://firebase.google.com/)
+
 [How to install and set up Flutter on VS Code and set up with Android Studio](https://www.youtube.com/watch?v=tun0HUHaDuE)
+
+[How to set up Firebase](https://www.youtube.com/watch?v=QZ_53nSPgPg)
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -23,6 +27,30 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Architecture Description
+
+Swap Shop's architecture consists of both front-end and back-end applications, which can all be installed on a PC (see "Getting Started").
+
+### Firebase
+Firebase is a platform developed by Google for creating mobile and web applications. Swap Shop makes use of the back-end platform as it is:
+ -cloud-based
+ -allows for viewing, adding, editing, and deletion of data.
+ -allows for us to manage indexes and monitor usage.
+ -uses Firebase Authentication and Cloud Firestore Security Rules to handle serverless authentication, authorization, and data validation
+ -keeps your data private and secure
+ -very low maintenance
+Swap Shop application is integrated with Firebase via VS Code.
+
+### Android Studio
+Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development. Flutter makes use of the Android SDK, and sets the environment variable to the SDK path for the flutter installation to recognise it, allowing for the front-end developemnt of the Swap Shop application.
+
+### VS Code
+Visual Studio Code, also commonly referred to as VS Code, is a source-code editor made by Microsoft for Windows, Linux and macOS. Swap Shop uses VS Code as an editor to run,edit and make the application with the Flutter development kit.
+
+### Flutter
+Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. Swap Shop makes use of the development kit alongside Android Studio and VS Code for the front-end development of the application. We make use of the Dart as the programming language as it is stable and creates high-performance applications as it is an object-oriented language.  
+
 
 ## Project Description
 
@@ -50,7 +78,7 @@ In an effort to avoid waste and grow communities, many people have begun operati
 
 Go to "Code", select "Download ZIP file"
 
-Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Get Started") and Open Folders
+Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Getting Started") and Open Folders
 
 Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
