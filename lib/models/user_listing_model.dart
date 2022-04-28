@@ -10,6 +10,8 @@ class UserListingModel {
   String? category;
   String? description;
   String? imageURL;
+  String? subCategories;
+
 
   UserListingModel(
       {this.uid,
@@ -17,6 +19,7 @@ class UserListingModel {
       this.itemName,
       this.category,
       this.description,
+      this.subCategories,
       this.imageURL});
 
   //get data from server
@@ -27,7 +30,11 @@ class UserListingModel {
         itemName: map['itemName'],
         category: map['category'],
         description: map['description'],
-        imageURL: map['imageURL']);
+        imageURL: map['imageURL'],
+        subCategories: map['subCatogries']);
+        
+       
+        
   }
 
   //send data to server
@@ -38,7 +45,8 @@ class UserListingModel {
       'itemName': itemName,
       'category': category,
       'description': description,
-      'imageURL': imageURL
+      'imageURL': imageURL,
+      'subCategories': subCategories,
     };
   }
 }
