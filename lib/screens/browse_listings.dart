@@ -14,17 +14,12 @@ class BrowseListings extends StatefulWidget {
   State<BrowseListings> createState() => _BrowseListingsState();
 }
 
-
-
 class _BrowseListingsState extends State<BrowseListings> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel userModel = UserModel();
   UserListingModel userListing = UserListingModel();
   int curr = 2;
   List listings = [];
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +46,7 @@ class _BrowseListingsState extends State<BrowseListings> {
                       crossAxisSpacing: 1,
                     ),
                     itemCount: listings.length,
-                    
                     itemBuilder: (context, index) => Padding(
-                      
                           padding: const EdgeInsets.all(6.0),
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -61,25 +54,28 @@ class _BrowseListingsState extends State<BrowseListings> {
                             ),
                             color: Colors.red,
                             elevation: 3.0,
-                            
                             child: InkWell(
-
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsScreen( 
-                                        description: listings[index]['description'],
-                                        itemName: listings[index]['itemName'],
-                                        productImage: listings[index]['imageURL'],
-                                        subCategories: listings[index]['subCatogories'],
-                                      )));
-                                      
-                                    } ,
-
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailsScreen(
+                                              description: listings[index]
+                                                  ['description'],
+                                              itemName: listings[index]
+                                                  ['itemName'],
+                                              productImage: listings[index]
+                                                  ['imageURL'],
+                                              subCategories: listings[index]
+                                                  ['subCatogories'],
+                                            )));
+                              },
                               child: Column(
-                               crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(15), // Image border
+                                    borderRadius: BorderRadius.circular(
+                                        15), // Image border
                                     child: AspectRatio(
                                       aspectRatio: 15 / 9,
                                       child: Image.network(
@@ -89,24 +85,23 @@ class _BrowseListingsState extends State<BrowseListings> {
                                     ),
                                   ),
                                   Container(
-                                      child: Container(
-                                          child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            listings[index]['itemName'],
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(listings[index]['category']),
-                                          Icon(Icons.favorite)
-                                        ],
-                                      )),
-                                    ),
-                                  
+                                    child: Container(
+                                        child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          listings[index]['itemName'],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(listings[index]['category']),
+                                        Icon(Icons.favorite)
+                                      ],
+                                    )),
+                                  ),
                                 ],
                               ),
-                             
                             ),
                           ),
                         )));

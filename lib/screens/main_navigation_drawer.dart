@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:swap_shop/models/user_model.dart';
+import 'package:swap_shop/screens/Your_Lists.dart';
 import 'package:swap_shop/screens/account_details_screen.dart';
 import 'package:swap_shop/screens/forgot_password_screen.dart';
 import 'login_screen.dart';
@@ -94,7 +95,10 @@ class _MainNavigationDrawerState extends State<MainNavigationDrawer> {
         height: 20,
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => YourLists()));
+        },
         leading: Icon(
           Icons.list,
           color: Colors.red,
