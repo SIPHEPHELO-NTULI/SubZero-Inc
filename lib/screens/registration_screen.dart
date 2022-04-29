@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/login_screen.dart';
+import 'package:csc_picker/csc_picker.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -16,6 +17,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   //form key for validation of the form
   final _formKey = GlobalKey<FormState>();
+
+  /// Variables to store country state city data in onChanged method.
+  String? countryValue;
+  String? provinceValue;
+  String? cityValue;
 
   //editing controllers
   //To control the text boxes for:
@@ -210,56 +216,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           )),
     );
 
-    //Suburb field
-    //validation : must be filled in
-    final suburbField = TextFormField(
-      autofocus: false,
-      controller: suburbEditingController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Suburb Cannot be Empty");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        suburbEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-          prefixIcon: Icon(Icons.domain),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Suburb",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
-    );
-
-    //City field
-    //validation : must be filled in
-    final cityField = TextFormField(
-      autofocus: false,
-      controller: cityEditingController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("City Cannot be Empty");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        cityEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.done,
-      decoration: InputDecoration(
-          prefixIcon: Icon(Icons.location_city),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "City",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
-    );
-
     //Sign Up Button
     //Calls SignUp Method with email and password
     final signUpButton = Material(
@@ -270,6 +226,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
+          if (countryValue == null ||
+              provinceValue == null ||
+              cityValue == null) {
+            showSnackBar(
+                "Country, Province & City Required", Duration(seconds: 3));
+          }
           signUp(emailEditingController.text, passwordEditingController.text);
         },
         child: Text(
@@ -285,78 +247,132 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     //consists of text fields for user input
     //and a sign up button
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          toolbarHeight: 30,
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.red),
-              onPressed: () {
-                Navigator.of(context).pop();
-              }),
-        ),
-        body: Center(
-            child: SingleChildScrollView(
-                child: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(36.0),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 100,
-                      child: Image.asset(
-                        "assets/logo.png",
-                        fit: BoxFit.contain,
-                      ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 30,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.red),
+            onPressed: () {
+              Navigator.of(context).pop();
+            }),
+      ),
+      body: Center(
+          child: SingleChildScrollView(
+              child: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(36.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 100,
+                    child: Image.asset(
+                      "assets/logo.png",
+                      fit: BoxFit.contain,
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    nameField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    surnameField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    usernameField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    emailField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    passwordField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    confirmPasswordField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    suburbField,
-                    SizedBox(
-                      height: 10,
-                    ),
-                    cityField,
-                    SizedBox(
-                      height: 20,
-                    ),
-                    signUpButton,
-                  ]),
-            ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  nameField,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  surnameField,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  usernameField,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  emailField,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  passwordField,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  confirmPasswordField,
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  ///Adding CSC Picker Widget in app
+                  CSCPicker(
+                    ///Enable disable state dropdown [OPTIONAL PARAMETER]
+                    showStates: true,
+
+                    /// Enable disable city drop down [OPTIONAL PARAMETER]
+                    showCities: true,
+
+                    ///Enable (get flag with country name) / Disable (Disable flag) / ShowInDropdownOnly (display flag in dropdown only) [OPTIONAL PARAMETER]
+                    flagState: CountryFlag.ENABLE,
+
+                    ///placeholders for dropdown search field
+                    stateSearchPlaceholder: "Province",
+                    citySearchPlaceholder: "City",
+
+                    ///labels for dropdown
+                    stateDropdownLabel: "Province",
+                    cityDropdownLabel: "City",
+
+                    ///Default Country
+                    defaultCountry: DefaultCountry.South_Africa,
+
+                    ///Disable country dropdown (Note: use it with default country)
+                    disableCountry: true,
+
+                    ///triggers once country selected in dropdown
+                    onCountryChanged: (value) {
+                      setState(() {
+                        ///store value in country variable
+                        countryValue = value;
+                      });
+                    },
+
+                    ///triggers once state selected in dropdown
+                    onStateChanged: (value) {
+                      setState(() {
+                        ///store value in state variable
+                        provinceValue = value;
+                      });
+                    },
+
+                    ///triggers once city selected in dropdown
+                    onCityChanged: (value) {
+                      setState(() {
+                        ///store value in city variable
+                        cityValue = value;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  signUpButton,
+                ]),
           ),
-        ))));
+        ),
+      ))),
+    );
   }
 
+  showSnackBar(String snackText, Duration d) {
+    final snackBar = SnackBar(
+      content: Text(snackText),
+      duration: d,
+      backgroundColor: Colors.red,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
   //this methos is used to post the values
   //entered on the form to the firebase database
 
@@ -376,13 +392,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.surname = surnameEditingController.text;
     userModel.username = usernameEditingController.text;
     userModel.email = user!.email;
-    userModel.suburb = suburbEditingController.text;
-    userModel.city = cityEditingController.text;
+    userModel.province = provinceValue;
+    userModel.city = cityValue;
     userModel.uid = user.uid;
 
     //sending values to database as map
     await firebaseFirestore
-        .collection("users")
+        .collection("Users")
         .doc(user.uid)
         .set(userModel.toMap());
 

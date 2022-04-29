@@ -141,7 +141,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   // snack bar method for displaying errors
   //when the entered email does not exist in our records
   showSnackBar(String snackText, Duration d) {
-    final snackBar = SnackBar(content: Text(snackText), duration: d);
+    final snackBar = SnackBar(
+        content: Text(snackText), duration: d, backgroundColor: Colors.red);
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

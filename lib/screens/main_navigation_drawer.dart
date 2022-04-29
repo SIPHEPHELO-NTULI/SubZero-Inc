@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/account_details_screen.dart';
 import 'package:swap_shop/screens/forgot_password_screen.dart';
+import 'package:swap_shop/screens/user_lists.dart';
 import 'login_screen.dart';
 
 class MainNavigationDrawer extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MainNavigationDrawerState extends State<MainNavigationDrawer> {
   void initState() {
     super.initState();
     FirebaseFirestore.instance
-        .collection("users")
+        .collection("Users")
         .doc(user!.uid)
         .get()
         .then((value) {
@@ -34,7 +35,7 @@ class _MainNavigationDrawerState extends State<MainNavigationDrawer> {
   }
 
   Future getImageURL() async {
-    var collection = FirebaseFirestore.instance.collection("users");
+    var collection = FirebaseFirestore.instance.collection("Users");
     var docSnapshot = await collection.doc(user!.uid).get();
     Map<String, dynamic>? data = docSnapshot.data();
     currentImageURL = data?['ProfilePicture'];
@@ -94,7 +95,10 @@ class _MainNavigationDrawerState extends State<MainNavigationDrawer> {
         height: 20,
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => YourLists()));
+        },
         leading: Icon(
           Icons.list,
           color: Colors.red,

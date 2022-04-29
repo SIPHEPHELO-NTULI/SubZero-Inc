@@ -6,7 +6,7 @@ class UserModel {
   String? surname;
   String? username;
   String? email;
-  String? suburb;
+  String? province;
   String? city;
 
   UserModel(
@@ -15,7 +15,7 @@ class UserModel {
       this.surname,
       this.username,
       this.email,
-      this.suburb,
+      this.province,
       this.city});
 
   //get data from server
@@ -26,7 +26,7 @@ class UserModel {
       surname: map['surname'],
       username: map['username'],
       email: map['email'],
-      suburb: map['suburb'],
+      province: map['province'],
       city: map['city'],
     );
   }
@@ -39,7 +39,7 @@ class UserModel {
       'surname': surname,
       'username': username,
       'email': email,
-      'suburb': suburb,
+      'province': province,
       'city': city,
     };
   }

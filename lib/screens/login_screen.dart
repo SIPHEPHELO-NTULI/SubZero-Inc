@@ -220,7 +220,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // snack bar method for displaying errors during Login
   showSnackBar(String snackText, Duration d) {
-    final snackBar = SnackBar(content: Text(snackText), duration: d);
+    final snackBar = SnackBar(
+        content: Text(snackText), duration: d, backgroundColor: Colors.red);
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

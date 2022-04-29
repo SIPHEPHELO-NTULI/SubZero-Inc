@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kayleize/Desktop/Stuffs/BU/SubZero-Inc./build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-et/values-et.xml",
+            "outputFile": "/Users/Kayleize/Desktop/M's Code/SubZero-Inc-new_reg_create/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-et/values-et.xml",
             "map": [
                 {
                     "source": "/Users/Kayleize/.gradle/caches/transforms-2/files-2.1/0c11252d9d87559920ca1b1a0bcd2692/jetified-play-services-basement-17.1.0/res/values-et/values.xml",

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:csc_picker/csc_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -19,6 +20,12 @@ class _AccountDetailsState extends State<AccountDetails> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel userModel = UserModel();
   var buttonText = 'Save';
+
+  /// Variables to store country state city data in onChanged method.
+  String? countryValue;
+  String? provinceValue;
+  String? cityValue;
+
   //form key for validation of the form
   final _formKey = GlobalKey<FormState>();
   String? currentImageURL;
@@ -41,7 +48,11 @@ class _AccountDetailsState extends State<AccountDetails> {
 
 //snack bar for error/success messages
   showSnackBar(String snackText, Duration d) {
-    final snackBar = SnackBar(content: Text(snackText), duration: d);
+    final snackBar = SnackBar(
+      content: Text(snackText),
+      duration: d,
+      backgroundColor: Colors.red,
+    );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
@@ -54,7 +65,7 @@ class _AccountDetailsState extends State<AccountDetails> {
   void initState() {
     super.initState();
     FirebaseFirestore.instance
-        .collection("users")
+        .collection("Users")
         .doc(user!.uid)
         .get()
         .then((value) {
@@ -64,8 +75,6 @@ class _AccountDetailsState extends State<AccountDetails> {
       surnameEditingController.text = userModel.surname.toString();
       usernameEditingController.text = userModel.username.toString();
       emailEditingController.text = userModel.email.toString();
-      suburbEditingController.text = userModel.suburb.toString();
-      cityEditingController.text = userModel.city.toString();
     });
     getImageURL();
   }
@@ -83,11 +92,12 @@ class _AccountDetailsState extends State<AccountDetails> {
     userModel.surname = surnameEditingController.text;
     userModel.username = usernameEditingController.text;
     userModel.email = emailEditingController.text;
-    userModel.suburb = suburbEditingController.text;
-    userModel.city = cityEditingController.text;
+    userModel.province = provinceValue;
+    userModel.city = cityValue;
+
     //sending values to database as map
     await firebaseFirestore
-        .collection("users")
+        .collection("Users")
         .doc(userModel.uid)
         .update(userModel.toMap())
         .whenComplete(() =>
@@ -111,7 +121,7 @@ class _AccountDetailsState extends State<AccountDetails> {
       postDetailsToFirestore();
 
       await firebaseFirestore
-          .collection("users")
+          .collection("Users")
           .doc(userModel.uid)
           .update({"ProfilePicture": imageURL}).whenComplete(() =>
               showSnackBar("Details Saved Successfully", Duration(seconds: 2)));
@@ -119,7 +129,7 @@ class _AccountDetailsState extends State<AccountDetails> {
   }
 
   Future getImageURL() async {
-    var collection = FirebaseFirestore.instance.collection("users");
+    var collection = FirebaseFirestore.instance.collection("Users");
     var docSnapshot = await collection.doc(user!.uid).get();
     Map<String, dynamic>? data = docSnapshot.data();
     currentImageURL = data?['ProfilePicture'];
@@ -253,56 +263,6 @@ class _AccountDetailsState extends State<AccountDetails> {
           )),
     );
 
-    //Suburb field
-    //validation : must be filled in
-    final suburbField = TextFormField(
-      autofocus: false,
-      controller: suburbEditingController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Suburb Cannot be Empty");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        suburbEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-          prefixIcon: Icon(Icons.domain),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Suburb",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
-    );
-
-    //City field
-    //validation : must be filled in
-    final cityField = TextFormField(
-      autofocus: false,
-      controller: cityEditingController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("City Cannot be Empty");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        cityEditingController.text = value!;
-      },
-      textInputAction: TextInputAction.done,
-      decoration: InputDecoration(
-          prefixIcon: Icon(Icons.location_city),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "City",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
-    );
-
     //Sign Up Button
     //Calls SignUp Method with email and password
     final saveButton = Material(
@@ -313,12 +273,18 @@ class _AccountDetailsState extends State<AccountDetails> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          if (_image == null) {
-            postDetailsToFirestore();
-            showSnackBar("Loading...", Duration(seconds: 5));
+          if (countryValue == null ||
+              provinceValue == null ||
+              cityValue == null) {
+            showSnackBar(" Province & City Required", Duration(seconds: 3));
           } else {
-            uploadData();
-            showSnackBar("Loading...", Duration(seconds: 5));
+            if (_image == null) {
+              postDetailsToFirestore();
+              showSnackBar("Loading...", Duration(seconds: 5));
+            } else {
+              uploadData();
+              showSnackBar("Loading...", Duration(seconds: 5));
+            }
           }
         },
         child: Text(
@@ -380,15 +346,60 @@ class _AccountDetailsState extends State<AccountDetails> {
                       SizedBox(
                         height: 10,
                       ),
-                      suburbField,
-                      SizedBox(
-                        height: 10,
+
+                      ///Adding CSC Picker Widget in app
+                      CSCPicker(
+                        ///Enable disable state dropdown [OPTIONAL PARAMETER]
+                        showStates: true,
+
+                        /// Enable disable city drop down [OPTIONAL PARAMETER]
+                        showCities: true,
+
+                        ///Enable (get flag with country name) / Disable (Disable flag) / ShowInDropdownOnly (display flag in dropdown only) [OPTIONAL PARAMETER]
+                        flagState: CountryFlag.ENABLE,
+
+                        ///placeholders for dropdown search field
+                        stateSearchPlaceholder: "province",
+                        citySearchPlaceholder: "city",
+
+                        ///labels for dropdown
+                        stateDropdownLabel: "Province",
+                        cityDropdownLabel: "City",
+
+                        ///Default Country
+                        defaultCountry: DefaultCountry.South_Africa,
+
+                        ///Disable country dropdown (Note: use it with default country)
+                        disableCountry: true,
+
+                        ///triggers once country selected in dropdown
+                        onCountryChanged: (value) {
+                          setState(() {
+                            ///store value in country variable
+                            countryValue = value;
+                          });
+                        },
+
+                        ///triggers once state selected in dropdown
+                        onStateChanged: (value) {
+                          setState(() {
+                            ///store value in state variable
+                            provinceValue = value;
+                          });
+                        },
+
+                        ///triggers once city selected in dropdown
+                        onCityChanged: (value) {
+                          setState(() {
+                            ///store value in city variable
+                            cityValue = value;
+                          });
+                        },
                       ),
-                      cityField,
                       SizedBox(
                         height: 20,
                       ),
-                      saveButton
+                      saveButton,
                     ]),
               ),
             ),
