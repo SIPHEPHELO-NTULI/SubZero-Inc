@@ -1,7 +1,7 @@
 swap_shop
 2.16
-file:///Users/Kayleize/Desktop/SubZero-Inc./
-file:///Users/Kayleize/Desktop/SubZero-Inc./lib/
+file:///Users/Kayleize/Desktop/SubZeroInc/SubZero-Inc./
+file:///Users/Kayleize/Desktop/SubZeroInc/SubZero-Inc./lib/
 async
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -42,6 +42,10 @@ cross_file
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.2/
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.2/lib/
+csc_picker
+2.12
+file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/csc_picker-0.2.6/
+file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/csc_picker-0.2.6/lib/
 cupertino_icons
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
