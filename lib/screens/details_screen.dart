@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:swap_shop/models/database_manager.dart';
 import 'package:swap_shop/models/user_listing_model.dart';
@@ -29,71 +30,103 @@ class DetailsScreen extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+Widget buildMessageButton() => FloatingActionButton.extended(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12)),
+      foregroundColor: Colors.white,
+      backgroundColor: Colors.red,
+      icon: Icon(Icons.message),
+      label: Text('Message'),
+      onPressed: (){},
+       );
+
+  Widget build(BuildContext context){
     return Scaffold(
-        appBar: AppBar(
-          //title: Text(userName),
-          backgroundColor: Colors.red,
-          iconTheme: IconThemeData(opacity: 20, color: Colors.black),
-        ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(40),
-                          bottomRight: Radius.circular(40),
-                        ),
-                        image: new DecorationImage(
-                          image: NetworkImage(productImage),
-                          fit: BoxFit.contain,
-                        ))),
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: const BackButton(color: Colors.black),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: CircleAvatar(
+              backgroundColor: Colors.white
               ),
-              Expanded(
-                  child: Container(
-                      color: Colors.white,
-                      child: ListTile(
-                        title: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                itemName,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text(
-                                    subCategories[0],
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ],
-                              ),
-                              Text("Description",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                              Text(
-                                description,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ]),
-                      )))
-            ],
-          ),
-        ));
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          Image.network(productImage,
+          height: MediaQuery.of(context).size.height * 0.4,
+          fit: BoxFit.cover), 
+          
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft:Radius.circular(15),
+                topRight:Radius.circular(15) )
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        itemName,
+                        style: Theme.of(context).textTheme.headline5,),   //item name display
+                    ]
+                  ),
+                  
+                   Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child: Text("Description : "+description)
+                    
+                  ),
+
+                    Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child: Text("City : "+ listingCity)
+                    //style: Theme.of(context).textTheme.headlineSmall),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child:  Text("Province : " + listingProvince)
+                    //style: Theme.of(context).textTheme.headlineSmall),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child:  Text("Upload Date : " + timeStamp)
+                    //style: Theme.of(context).textTheme.headlineSmall),
+                  ),
+                  
+                 
+                  if( (subCategories[0]=="N/A") == false) Text(subCategories[ 0]),
+                  //{
+                   // Text(subCategories[0]),
+                  //};
+                  
+                  
+                  
+                  
+                ],
+                
+              ),
+            ),
+              
+            
+          ))
+           // 40%
+        ]),
+        floatingActionButton: buildMessageButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+    
   }
-}
