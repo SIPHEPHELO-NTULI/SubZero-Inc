@@ -295,7 +295,9 @@ class _CreateListing extends State<CreateListing> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("My Listing"),
-        automaticallyImplyLeading: false,
+      ),
+      drawer: Drawer(
+        child: MainNavigationDrawer(),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -498,7 +500,10 @@ class _CreateListing extends State<CreateListing> {
                               ),
                               ElevatedButton(
                                   onPressed: () {
-                                    imagePickerMethod();
+                                    showModalBottomSheet(
+                                      context: context,
+                                      builder: ((builder) => bottomSheet()),
+                                    );
                                   },
                                   child: Icon(
                                     Icons.add_a_photo,

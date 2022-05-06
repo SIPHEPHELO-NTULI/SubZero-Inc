@@ -1,7 +1,7 @@
 swap_shop
 2.16
-file:///Users/Kayleize/Desktop/SubZeroInc/SubZero-Inc./
-file:///Users/Kayleize/Desktop/SubZeroInc/SubZero-Inc./lib/
+file:///Users/Kayleize/Desktop/CloneSubZero-Inc/
+file:///Users/Kayleize/Desktop/CloneSubZero-Inc/lib/
 async
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -50,6 +50,10 @@ cupertino_icons
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
+dropdown_button2
+2.12
+file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_button2-1.4.0/
+file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/dropdown_button2-1.4.0/lib/
 fake_async
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
@@ -98,10 +102,6 @@ flutter_plugin_android_lifecycle
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5/
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5/lib/
-flutter_secure_storage
-2.1
-file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.5/
-file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.5/lib/
 fluttertoast
 2.12
 file:///Users/Kayleize/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/

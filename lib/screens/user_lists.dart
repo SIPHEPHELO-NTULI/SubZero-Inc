@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:swap_shop/models/database_manager.dart';
 import 'package:swap_shop/models/user_listing_model.dart';
 import 'package:swap_shop/models/user_model.dart';
-import 'package:swap_shop/screens/details_screen.dart';
 import 'package:swap_shop/screens/home_screen.dart';
+import 'package:swap_shop/screens/userlists_view.dart';
 
 import 'main_navigation_drawer.dart';
 
@@ -79,7 +79,7 @@ class _YourLists extends State<YourLists> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DetailsScreen(
+                                  builder: (context) => Viewlist(
                                         description: listings[index]
                                             ['description'],
                                         listingProvince: listings[index]
@@ -93,6 +93,8 @@ class _YourLists extends State<YourLists> {
                                             ['subCategories'],
                                         timeStamp: listings[index]
                                             ['listingTime'],
+                                        category: listings[index]['category'],
+                                        listingID: listings[index]['listingID'],
                                       )));
                         },
                       );

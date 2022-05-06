@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 
+import 'home_screen.dart';
+import 'main_navigation_drawer.dart';
+
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
@@ -76,7 +79,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Reset Password"),
-          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                }),
+          ],
+        ),
+        drawer: Drawer(
+          child: MainNavigationDrawer(),
         ),
         backgroundColor: Colors.white,
         body: Center(
