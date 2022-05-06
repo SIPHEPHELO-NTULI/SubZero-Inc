@@ -202,7 +202,7 @@ class _BrowseListingsState extends State<BrowseListings> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       Text(byFilter[index]['category']),
-                                      Icon(Icons.favorite)
+                                      Text(byFilter[index]['listingTime']) 
                                     ],
                                   ))
                                 ],
