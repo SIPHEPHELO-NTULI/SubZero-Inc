@@ -19,6 +19,10 @@ Downloads/Installations needed:
 
 [How to set up Firebase](https://www.youtube.com/watch?v=QZ_53nSPgPg)
 
+=======
+[How to install and set up Flutter on VS Code and set up with Android Studio](https://www.youtube.com/watch?v=tun0HUHaDuE)
+
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
@@ -27,6 +31,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
 
 ## Architecture Description
 
@@ -78,6 +83,7 @@ In an effort to avoid waste and grow communities, many people have begun operati
 
 Go to "Code", select "Download ZIP file"
 
+
 Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Getting Started") and Open Folders
 
 Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
@@ -85,3 +91,11 @@ Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 ## CircleCI Badge
 
 [![mf-fentse](https://circleci.com/gh/mf-fentse/SubZero-Inc.svg?style=svg)](https://circleci.com/gh/mf-fentse/SubZero-Inc)
+=======
+Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Get Started") and Open Folders
+Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
+
+## Badge
+
+[![mf-fentse](https://circleci.com/gh/mf-fentse/SubZero-Inc.svg?style=svg)](https://circleci.com/gh/mf-fentse/SubZero-Inc)
+
