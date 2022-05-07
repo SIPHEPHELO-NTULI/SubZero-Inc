@@ -6,5 +6,6 @@ jobs:
     steps:
       - checkout
       - run: flutter doctor
+      - run: flutter pub get
       
 
