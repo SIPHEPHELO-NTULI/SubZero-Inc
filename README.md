@@ -96,5 +96,4 @@ Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
 ## Badge
 
-https://img.shields.io/codacy/coverage/b6046f4e-b6f1-4146-b495-ae40b7fa146a
-
+https://img.shields.io/gitlab/coverage/NatureKhosa/SubZero-Inc/BrowseListings?job_name=tests
