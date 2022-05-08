@@ -96,5 +96,5 @@ Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
 ## Badge
 
-[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/Naturekhosa/SubZero-Inc/BrowseListings/workflow/badge.svg?window=30d)](https://app.circleci.com/insights/github/Naturekhosa/SubZero-Inc/workflows/workflow/overview?branch=BrowseListings&reporting-window=last-30-days&insights-snapshot=true) 
+https://img.shields.io/codacy/coverage/b6046f4e-b6f1-4146-b495-ae40b7fa146a
 
