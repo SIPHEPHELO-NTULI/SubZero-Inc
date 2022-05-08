@@ -90,7 +90,7 @@ Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
 ## CircleCI Badge
 
-[![NatureKhosa](https://img.shields.io/codecov/c/github/NatureKhosa/SubZero-Inc?color=g)](https://img.shields.io/codecov/c/github/NatureKhosa/SubZero-Inc?color=g)
+[![NatureKhosa](https://circleci.com/gh/NatureKhosa/SubZero-Inc/tree/teesloane-patch-5.svg?style=svg)](https://circleci.com/gh/NatureKhosa/SubZero-Inc/?branch=teesloane-patch-5)
 =======
 Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Get Started") and Open Folders
 Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
