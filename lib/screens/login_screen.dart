@@ -4,6 +4,34 @@ import 'package:swap_shop/screens/forgot_password_screen.dart';
 import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/registration_screen.dart';
 
+class EmailFieldValidator{
+  static String? validate(String? value){  //static becuase we won't have to create an instance
+    if (value!.isEmpty) {
+          return "Please Enter Your Email";
+        }
+        //reg expression for email validation
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+          return "Please enter a valid email";
+        }
+        return null;
+      
+  }
+}
+class PasswordFieldValidator{
+  static String? validate(String? value){
+    RegExp regex = new RegExp(r'^.{6,}$');
+        if (value!.isEmpty) {
+          return "Password Required";
+        }
+
+        if (!regex.hasMatch(value)) {
+          return "Please Enter Valid Password (6 Characters Min)";
+        }
+        return null;
+
+  }
+}
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -33,16 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "Please Enter Your Email";
-        }
-        //reg expression for email validation
-        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
-          return "Please enter a valid email";
-        }
-        return null;
-      },
+      validator :  EmailFieldValidator.validate, 
       onSaved: (value) {
         emailController.text = value!;
       },
@@ -63,17 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: passwordController,
       obscureText: true,
-      validator: (value) {
-        RegExp regex = new RegExp(r'^.{6,}$');
-        if (value!.isEmpty) {
-          return "Password Required";
-        }
-
-        if (!regex.hasMatch(value)) {
-          return "Please Enter Valid Password (6 Characters Min)";
-        }
-        return null;
-      },
+      validator: PasswordFieldValidator.validate,
+       
       onSaved: (value) {
         passwordController.text = value!;
       },
