@@ -4,12 +4,16 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:swap_shop/models/user_listing_model.dart';
 import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/home_screen.dart';
 import 'package:swap_shop/screens/main_navigation_drawer.dart';
+import 'package:swap_shop/screens/user_lists.dart';
+
+import '../models/database_manager.dart';
 
 class EditList extends StatefulWidget {
   final String description;
@@ -68,6 +72,9 @@ class _Editlist extends State<EditList> {
   ];
   final List<String> clothes_size = ['XS', 'S', 'M', 'L', 'XL'];
   String? selectedCategory;
+  String? selectedvalue;
+  String? selectedsize;
+
   String? selected_clothe_size;
   Future imagePickerMethod() async {
     //pick the image file from users local gallery
@@ -111,6 +118,27 @@ class _Editlist extends State<EditList> {
       setState(() {
         itemNameEditingController.text = widget.itemName.toString();
         descriptionEditingController.text = widget.description.toString();
+        item_Expire_date_EditingController.text =
+            widget.subCategories[0].toString();
+        selectedvalue = widget.category.toString();
+        if (widget.category.toString() == "Food") {
+          dateinput.text = widget.subCategories[0].toString();
+        }
+        if (widget.category.toString() == "Clothing") {
+          selectedsize = widget.subCategories[0].toString();
+        }
+
+        subcategories.clear();
+        if (selectedvalue == "Clothing") {
+          visibility_clothe_size = true; // show clothe size dropdown.
+          visibility_Expire_date = false; // hide expiring date field
+        } else if (selectedvalue == "Food") {
+          visibility_Expire_date = true; // show expiring date field.
+          visibility_clothe_size = false; //hide clothe size dropdown.
+        } else {
+          visibility_clothe_size = false;
+          visibility_Expire_date = false;
+        }
       });
     });
   }
@@ -145,10 +173,15 @@ class _Editlist extends State<EditList> {
     userListing.listingProvince = userModel.province;
     userListing.listingCity = userModel.city;
     userListing.itemName = itemNameEditingController.text;
+    if (selectedCategory == null) {
+      selectedCategory = widget.category;
+    }
     userListing.category = selectedCategory;
     userListing.subCategories = subcategories;
+
     if (subcategories.isEmpty) {
-      subcategories.add("N/A");
+      subcategories.add(widget.subCategories[0].toString());
+      //subcategories.add("N/A");
     }
     userListing.description = descriptionEditingController.text;
     userListing.imageURL = imageURl;
@@ -299,6 +332,16 @@ class _Editlist extends State<EditList> {
           } else {
             uploadData();
           }
+          //added navigation and save confirmation
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => YourLists(),
+          ));
+
+          Fluttertoast.showToast(
+            msg: 'Listing Saved',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+          );
         },
         child: Text(
           "Save",
@@ -391,6 +434,7 @@ class _Editlist extends State<EditList> {
                                   ),
                                 ))
                             .toList(),
+                        value: selectedvalue,
                         validator: (value) {
                           if (value == null) {
                             return '      Please select category.';
@@ -398,6 +442,8 @@ class _Editlist extends State<EditList> {
                         },
                         onChanged: (val) {
                           setState(() {
+                            selectedvalue:
+                            val;
                             selectedCategory = val.toString();
                             if (selectedCategory == "Clothing") {
                               visibility_clothe_size =
@@ -416,7 +462,11 @@ class _Editlist extends State<EditList> {
                           });
                         },
                         onSaved: (value) {
-                          selectedCategory = value.toString();
+                          if (selectedCategory == null) {
+                            selectedCategory = widget.category.toString();
+                          } else {
+                            selectedCategory = value.toString();
+                          }
                         },
                         dropdownMaxHeight: 200,
                         dropdownWidth: 200,
@@ -475,6 +525,7 @@ class _Editlist extends State<EditList> {
                                     ),
                                   ))
                               .toList(),
+                          value: selectedsize,
                           validator: (value) {
                             if (value == null) {
                               return '      Please select clothe size.';
@@ -482,7 +533,9 @@ class _Editlist extends State<EditList> {
                           },
                           onChanged: (val) {
                             setState(() {
+                              selectedsize = val as String?;
                               selected_clothe_size = val.toString();
+                              subcategories.add(selectedsize!);
                             });
                           },
                           onSaved: (value) {

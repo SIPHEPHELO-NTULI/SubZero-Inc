@@ -106,7 +106,11 @@ class Viewlist extends StatelessWidget {
                     child: Text("Upload Date : " + timeStamp)
                     //style: Theme.of(context).textTheme.headlineSmall),
                     ),
-                if ((subCategories[0] == "N/A") == false)
+                if ((category.toString() == "Clothing") &
+                    ((subCategories[0] == "N/A") == false))
+                  Text("Clothing Size :" + subCategories[0]),
+                if ((category.toString() == "Food") &
+                    ((subCategories[0] == "N/A") == false))
                   Text(subCategories[0]),
               ],
             ),
