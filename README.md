@@ -79,7 +79,7 @@ In an effort to avoid waste and grow communities, many people have begun operati
 
 •	Be able to report other users 
 
-## How to Intsall and Run Project
+## How to Install and Run Project
 
 Go to "Code", select "Download ZIP file"
 
