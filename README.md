@@ -89,8 +89,7 @@ Extract files, open Visual Studio Code (if you have not downloaded and set it up
 Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
 ## CircleCI Badge
-[![Flutter Test](https://github.com/SIPHEPHELO-NTULI/SubZero-Inc/actions/workflows/main.yml/badge.svg?branch=BrowseListings)](https://github.com/SIPHEPHELO-NTULI/SubZero-Inc/actions/workflows/main.yml)
-=======
+[![Flutter Test](https://github.com/SIPHEPHELO-NTULI/SubZero-Inc/actions/workflows/main.yml/badge.svg?branch=BrowseListings)](https://github.com/SIPHEPHELO-NTULI/SubZero-Inc/actions/workflows/main.yml)=======
 Extract files, open Visual Studio Code (if you have not downloaded and set it up check out "Get Started") and Open Folders
 Open "SubZero-Inc-main" and select emulator and click "Run and Debug"
 
