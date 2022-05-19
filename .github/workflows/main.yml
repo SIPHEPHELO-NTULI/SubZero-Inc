@@ -25,11 +25,9 @@ jobs:
         run: flutter pub get
 
       - name: Run Flutter Test
-        run: flutter test
+        run: flutter test --coverage
         
-      - name: Upload coverage reports to Codecov
-        run: |
-          $ProgressPreference = 'SilentlyContinue'
-          Invoke-WebRequest -Uri https://uploader.codecov.io/latest/windows/codecov.exe 
-          -Outfile codecov.exe
-          .\codecov.exe -t ${CODECOV_TOKEN}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: coverage/Icon.info
