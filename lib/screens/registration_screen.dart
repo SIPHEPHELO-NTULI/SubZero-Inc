@@ -6,6 +6,54 @@ import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 import 'package:csc_picker/csc_picker.dart';
 
+class confirmPasswordValidator{
+  static String? validate(String? value){
+    if (value!.isEmpty) {
+          return "Passwords don't match";
+        }
+        return null;
+      }
+  }
+
+class surnameFieldValidator{
+  static String? validate(String? value){
+    RegExp regex = new RegExp(r'^.{3,}$');
+        if (value!.isEmpty) {
+          return ("Surname Cannot be Empty");
+        }
+        if (!regex.hasMatch(value)) {
+          return ("Please Enter Valid Surname (3 Characters Min)");
+        }
+        return null;
+      }
+  }
+
+class nameFieldValidator{
+  static String? validate(String? value){
+    RegExp regex = new RegExp(r'^.{3,}$');
+        if (value!.isEmpty) {
+          return ("Name Cannot be Empty");
+        }
+        if (!regex.hasMatch(value)) {
+          return ("Please Enter Valid Name (3 Characters Min)");
+        }
+        return null;
+  }
+
+}
+
+class userNameFieldValidator{
+  static String? validate(String? value){
+    RegExp regex = new RegExp(r'^.{3,}$');
+      if (value!.isEmpty) {
+            return ("Username Cannot be Empty");
+          }
+      if (!regex.hasMatch(value)) {
+            return ("Please Enter Valid Username (3 Characters Min)");
+          }
+    }
+
+}
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
 
@@ -45,6 +93,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final TextEditingController cityEditingController =
       new TextEditingController();
 
+  
+  
+
   @override
   Widget build(BuildContext context) {
     //Name field
@@ -54,17 +105,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: nameEditingController,
       keyboardType: TextInputType.name,
-      validator: (value) {
-        RegExp regex = new RegExp(r'^.{3,}$');
-        if (value!.isEmpty) {
-          return ("Name Cannot be Empty");
-        }
-
-        if (!regex.hasMatch(value)) {
-          return ("Please Enter Valid Name (3 Characters Min)");
-        }
-        return null;
-      },
+      validator: nameFieldValidator.validate, 
       onSaved: (value) {
         nameEditingController.text = value!;
       },
@@ -85,12 +126,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: surnameEditingController,
       keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Surname Cannot be Empty");
-        }
-        return null;
-      },
+      validator: surnameFieldValidator.validate, 
       onSaved: (value) {
         surnameEditingController.text = value!;
       },
@@ -109,12 +145,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final usernameField = TextFormField(
       autofocus: false,
       controller: usernameEditingController,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Username Cannot be Empty");
-        }
-        return null;
-      },
+      validator: userNameFieldValidator.validate,
       onSaved: (value) {
         usernameEditingController.text = value!;
       },
@@ -135,16 +166,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: emailEditingController,
       keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Please Enter Your Email");
-        }
-        //reg expression for email validation
-        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
-          return ("Please enter a valid email");
-        }
-        return null;
-      },
+      validator: EmailFieldValidator.validate,
       onSaved: (value) {
         emailEditingController.text = value!;
       },
@@ -165,16 +187,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       obscureText: true,
       autofocus: false,
       controller: passwordEditingController,
-      validator: (value) {
-        RegExp regex = new RegExp(r'^.{6,}$');
-        if (value!.isEmpty) {
-          return "Password Required";
-        }
-
-        if (!regex.hasMatch(value)) {
-          return ("Please Enter Valid Password (6 Characters Min)");
-        }
-      },
+      validator: PasswordFieldValidator.validate,
       onSaved: (value) {
         passwordEditingController.text = value!;
       },
@@ -425,3 +438,4 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 }
+
