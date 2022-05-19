@@ -1,4 +1,4 @@
-name: Dart CI
+name: Flutter Test
 
 on: [push]
 
@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
-      run: pub get
+      run: flutter pub get
     - name: Run tests with coverage
-      run: pub run test --coverage="coverage"
+      run: flutter test --coverage
     - name: Convert coverage to ICOV
       run: pub run coverage:format_coverage --lcov --in=coverage --out=coverage.lcov --packages=.packages --report-on=lib
     - name: Upload coverage to Codecov  
