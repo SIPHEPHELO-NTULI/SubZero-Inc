@@ -13,6 +13,40 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:intl/intl.dart';
 import 'package:swap_shop/screens/main_navigation_drawer.dart';
 
+class descriptionFieldValidator{
+  static String? validate(String? value){
+    if (value!.isEmpty) {
+          return ("Description Cannot be Empty");
+        }
+        return null;
+  }
+}
+
+class ItemNameValidator{
+  static String? validate(String? value){
+    if (value!.isEmpty) {
+          return ("Item Name Cannot be Empty");
+        }
+        return null;
+      }
+}
+
+class dateFieldValidator{
+  static String? validate(String? value){
+    if (value!.isEmpty) {
+              return ("Date is not selected");
+            }
+            return null;
+  }
+}
+class clotheSizeFieldValidator{
+  static String? validate(String? value){
+    if (value == null) {
+           return '      Please select category.';
+            }
+  }
+}
+
 class CreateListing extends StatefulWidget {
   CreateListing({Key? key}) : super(key: key);
 
@@ -184,12 +218,7 @@ class _CreateListing extends State<CreateListing> {
       autofocus: false,
       controller: itemNameEditingController,
       keyboardType: TextInputType.name,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Item Name Cannot be Empty");
-        }
-        return null;
-      },
+      validator: ItemNameValidator.validate,
       onSaved: (value) {
         itemNameEditingController.text = value!;
       },
@@ -207,12 +236,7 @@ class _CreateListing extends State<CreateListing> {
         visible: visibility_Expire_date,
         child: TextFormField(
           controller: dateinput, //editing controller of this TextField
-          validator: (value) {
-            if (value!.isEmpty) {
-              return ("Date is not selected");
-            }
-            return null;
-          },
+          validator: dateFieldValidator.validate,
           decoration: InputDecoration(
               icon: Icon(Icons.calendar_today), //icon of text field
               labelText: "Enter Expiration Date" //label text of field
@@ -254,12 +278,7 @@ class _CreateListing extends State<CreateListing> {
       controller: descriptionEditingController,
       keyboardType: TextInputType.multiline,
       maxLines: null,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return ("Description Cannot be Empty");
-        }
-        return null;
-      },
+      validator: descriptionFieldValidator.validate,
       onSaved: (value) {
         descriptionEditingController.text = value!;
       },
@@ -362,11 +381,7 @@ class _CreateListing extends State<CreateListing> {
                                   ),
                                 ))
                             .toList(),
-                        validator: (value) {
-                          if (value == null) {
-                            return '      Please select category.';
-                          }
-                        },
+                        validator: clotheSizeFieldValidator.validate,
                         onChanged: (val) {
                           setState(() {
                             selectedCategory = val.toString();
@@ -446,11 +461,7 @@ class _CreateListing extends State<CreateListing> {
                                     ),
                                   ))
                               .toList(),
-                          validator: (value) {
-                            if (value == null) {
-                              return '      Please select clothe size.';
-                            }
-                          },
+                          validator: clotheSizeFieldValidator.validate,
                           onChanged: (val) {
                             setState(() {
                               selected_clothe_size = val.toString();
