@@ -6,6 +6,14 @@ import 'package:swap_shop/models/user_model.dart';
 import 'package:swap_shop/screens/login_screen.dart';
 import 'package:csc_picker/csc_picker.dart';
 
+
+class Counter {
+  int value = 0;
+
+  void increment() => value++;
+
+  void decrement() => value--;
+}
 class confirmPasswordValidator{
   static String? validate(String? value){
     if (value!.isEmpty) {
