@@ -7,8 +7,6 @@ import 'package:swap_shop/screens/login_screen.dart';
 import 'package:swap_shop/screens/registration_screen.dart';
 
 
-
-
 void main() {
   
   test('name empty', () async {
